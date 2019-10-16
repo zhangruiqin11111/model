@@ -3,7 +3,7 @@
 # @File  : test.py
 # @Author: yolo
 # @Date  : 2018/11/9
-# @Contact : zhang_rq@neusoft.com
+# @Contact : zrq
 from socket import *
 import threading
 import xml.dom.minidom as xmldom
