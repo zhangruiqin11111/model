@@ -1,0 +1,31 @@
+1、本地安装GIT 了解GIT工作原理、机制，可实现代码的同步、上传等操作
+2、配置GIT (https://www.cnblogs.com/cxscode/p/8325064.html)
+	我们先在电脑硬盘里找一块地方存放本地仓库，比如我们把本地仓库建立在C:\MyRepository\1ke_test文件夹下,
+	进入1ke_test文件夹 鼠标右键操作如下步骤：
+	a.在本地仓库里右键选择Git Init Here，会多出来一个.git文件夹，这就表示本地git创建成功。
+	右键Git Bash进入git命令行,为了保险起见，我们先执行git init命令
+	$ git init
+	b.在本地创建ssh key
+	$ ssh-keygen -t rsa -C "your_email@youremail.com"
+	后面的your_email@youremail.com改为你的邮箱。也是在github上注册的那个邮箱
+	将生成的key传到GITHUB 项目上,验证是否成功，在git bash下输入 $ ssh -T git@github.com
+	c.接下来我们要做的就是把本地仓库传到github上去，在此之前还需要设置username和email，
+	因为github每次commit都会记录他们
+	$ git config --global user.name "your name"
+	$ git config --global user.email "your_email@youremail.com"
+	d.进入要上传的仓库，右键git bash，添加远程地址
+	$ git remote add origin git@github.com:yourName/yourRepo.git(后面的yourName和yourRepo表示你再github的用户名和刚才新建的仓库，加完之后进入.git，打开config，
+	这里会多出一个remote “origin”内容，这就是刚才添加的远程地址，也可以直接修改config来配置远程地址。)
+
+3、提交上传
+	1）接下来在本地仓库里添加一些文件，比如README，在本地新建一个README文件
+	然后在命令行输入一下命令
+	$ git add README
+	$ git commit -m "first commit"
+	2）上传到github 
+	$ git push origin master
+	git push命令会将本地仓库推送到远程服务器。
+	git pull命令则相反。
+
+	注：首次提交，先git pull下，修改完代码后，使用git status可以查看文件的差别，使用git add 添加要commit的文件。
+	
