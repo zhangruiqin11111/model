@@ -59,3 +59,18 @@
 	d.提交修改内容与提交新文件是一样的两步
  		$git add 文件名
 		$git commit -m "add a line"
+	e.提交后，再次查看版本库当前状态，会看到文件没有需要提交的更改。
+	f.撤销操作 
+	有时候，我们提交完成后发现漏掉几个文件没有添加，或者信息写错了，这时候就需要对操作进行撤销。
+	git commit --amend
+	$git commit -m 'xxxxx'
+	$git add file
+	$git commit --amend	
+	g.7、撤销对文件的修改
+	如果不想保留对某一个文件的修改，则可以使用git checkout -- filename来撤销对文件的修改。
+	但是这个命令只是拷贝了另一个文件来覆盖它，文件的所有更改都将消失。
+
+
+
+
+	
