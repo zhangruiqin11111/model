@@ -1,4 +1,5 @@
 1、本地安装GIT 了解GIT工作原理、机制，可实现代码的同步、上传等操作
+
 2、配置GIT (https://www.cnblogs.com/cxscode/p/8325064.html)
 	我们先在电脑硬盘里找一块地方存放本地仓库，比如我们把本地仓库建立在C:\MyRepository\1ke_test文件夹下,
 	进入1ke_test文件夹 鼠标右键操作如下步骤：
@@ -9,6 +10,11 @@
 	$ ssh-keygen -t rsa -C "your_email@youremail.com"
 	后面的your_email@youremail.com改为你的邮箱。也是在github上注册的那个邮箱
 	将生成的key传到GITHUB 项目上,验证是否成功，在git bash下输入 $ ssh -T git@github.com
+	注：添加ssh key原因：
+		https 和 SSH 的区别：
+		1、前者可以随意克隆github上的项目，而不管是谁的；而后者则是你必须是你要克隆的项目的拥有者或管理员，且需要先添加 SSH key ，否则无法克隆。
+		2、https url 在push的时候是需要验证用户名和密码的；而 SSH 在push的时候，是不需要输入用户名的，如果配置SSH key的时候设置了密码，则需要输入密码的，
+	否则直接是不需要输入密码的。
 	c.接下来我们要做的就是把本地仓库传到github上去，在此之前还需要设置username和email，
 	因为github每次commit都会记录他们
 	$ git config --global user.name "your name"
@@ -28,4 +34,25 @@
 	git pull命令则相反。
 
 	注：首次提交，先git pull下，修改完代码后，使用git status可以查看文件的差别，使用git add 添加要commit的文件。
+	
+4、GIT查看远程仓库连接
+	使用git remote -v  查看远程仓库地址
+
+5、GIT删除本地仓库的文件或文件夹
+	dir // 查询跟目录的所有文件和文件夹
+	dir test // 查询test文件夹下的所有文件和文件夹
+	git rm -r --cached test/a.txt // 删除test文件夹下的a.txt文件，加入到删除缓存中
+	git commit -m '删除test文件夹下的a.txt文件' // 执行删除缓存，提交文字为“删除test文件夹下的a.txt文件”
+	git rm -r --cached test // 删除test文件夹，加入到删除缓存中
+	git commit -m '删除test文件夹' // 执行删除缓存，提交文字为“删除test文件夹”
+	git push // 推送操作到远程仓库
+
+6、GIT删除远程仓库的文件或文件夹
+
+
+
+7、GIT文件的修改与提交
+	a、查看文件版本库中的文件状态：
+	$git status
+	b.修改文件，再次查看版本库中文件的状态： 
 	
