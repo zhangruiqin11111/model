@@ -55,4 +55,7 @@
 	a、查看文件版本库中的文件状态：
 	$git status
 	b.修改文件，再次查看版本库中文件的状态： 
-	
+	c.对比文件修改前和修改后的变化：$git diff
+	d.提交修改内容与提交新文件是一样的两步
+ 		$git add 文件名
+		$git commit -m "add a line"
