@@ -30,8 +30,8 @@
 	$ git commit -m "first commit"
 	2）上传到github 
 	$ git push origin master
-	git push命令会将本地仓库推送到远程服务器。
-	git pull命令则相反。
+	$ git push命令会将本地仓库推送到远程服务器。
+	$ git pull命令则相反。
 
 	注：首次提交，先git pull下，修改完代码后，使用git status可以查看文件的差别，使用git add 添加要commit的文件。
 	
@@ -39,39 +39,43 @@
 	使用git remote -v  查看远程仓库地址
 
 5、GIT删除本地仓库的文件或文件夹
-	dir // 查询跟目录的所有文件和文件夹
-	dir test // 查询test文件夹下的所有文件和文件夹
-	git rm -r --cached test/a.txt // 删除test文件夹下的a.txt文件，加入到删除缓存中
-	git commit -m '删除test文件夹下的a.txt文件' // 执行删除缓存，提交文字为“删除test文件夹下的a.txt文件”
-	git rm -r --cached test // 删除test文件夹，加入到删除缓存中
-	git commit -m '删除test文件夹' // 执行删除缓存，提交文字为“删除test文件夹”
-	git push // 推送操作到远程仓库
+	$ dir // 查询跟目录的所有文件和文件夹
+	$ dir test // 查询test文件夹下的所有文件和文件夹
+	$ git rm -r --cached test/a.txt // 删除test文件夹下的a.txt文件，加入到删除缓存中
+	$ git commit -m '删除test文件夹下的a.txt文件' // 执行删除缓存，提交文字为“删除test文件夹下的a.txt文件”
+	$ git rm -r --cached test // 删除test文件夹，加入到删除缓存中
+	$ git commit -m '删除test文件夹' // 执行删除缓存，提交文字为“删除test文件夹”
+	$ git push // 推送操作到远程仓库
 
 6、GIT删除远程仓库的文件或文件夹
-	$git pull origin master  本地同步远程仓库，将远程仓库里的内容拉下来
-	$git rm -r --cached 文件名   删除文件
-	$git commit -m '删除test文件夹'   提交并添加说明
-	$git push  将本次更改更新到github项目上去
+	$ git pull origin master  本地同步远程仓库，将远程仓库里的内容拉下来
+	$ git rm -r --cached 文件名   删除文件
+	$ git commit -m '删除test文件夹'   提交并添加说明
+	$ git push  将本次更改更新到github项目上去
 
 7、GIT文件的修改与提交
 	a、查看文件版本库中的文件状态：
-	$git status
+	$ git status
 	b.修改文件，再次查看版本库中文件的状态： 
 	c.对比文件修改前和修改后的变化：$git diff
 	d.提交修改内容与提交新文件是一样的两步
- 		$git add 文件名
-		$git commit -m "add a line"
+ 		$ git add 文件名
+		$ git commit -m "add a line"
 	e.提交后，再次查看版本库当前状态，会看到文件没有需要提交的更改。
 	f.撤销操作 
 	有时候，我们提交完成后发现漏掉几个文件没有添加，或者信息写错了，这时候就需要对操作进行撤销。
-	git commit --amend
-	$git commit -m 'xxxxx'
-	$git add file
-	$git commit --amend	
+	$ git commit --amend
+	$ it commit -m 'xxxxx'
+	$ git add file
+	$ git commit --amend	
 	g.撤销对文件的修改
 	如果不想保留对某一个文件的修改，则可以使用git checkout -- filename来撤销对文件的修改。
 	但是这个命令只是拷贝了另一个文件来覆盖它，文件的所有更改都将消失。
 
+8、git怎么回退到某个历史commit
+	$ git log #查看
+	在Terminal 或者git控制条 执行 回退到某个版本命令
+	$ git reset --hard 139dcfaa558e3276b30b6b2e5cbbb9c00bbdca96 
 ######报错信息：
 	解决Git上传过程中：error: failed to push some refs to 'git@github.com
 	解决：https://blog.csdn.net/qq_41485414/article/details/80745910
