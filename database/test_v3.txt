@@ -12,6 +12,7 @@ CREATE TABLE `salaries` (
 `from_date` date NOT NULL,
 `to_date` date NOT NULL,
 PRIMARY KEY (`emp_no`,`from_date`));
+
 A:
 	select  D.dept_no,S.emp_no,S.emp_no,S.emp_no,S.emp_no,
 	from  dept_manager D, salaries S
