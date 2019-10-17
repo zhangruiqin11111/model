@@ -1,0 +1,40 @@
+Q:
+查找所有员工的last_name和first_name以及对应部门编号dept_no，也包括展示没有分配具体部门的员工
+CREATE TABLE `dept_emp` (
+`emp_no` int(11) NOT NULL,
+`dept_no` char(4) NOT NULL,
+`from_date` date NOT NULL,
+`to_date` date NOT NULL,
+PRIMARY KEY (`emp_no`,`dept_no`));
+CREATE TABLE `employees` (
+`emp_no` int(11) NOT NULL,
+`birth_date` date NOT NULL,
+`first_name` varchar(14) NOT NULL,
+`last_name` varchar(16) NOT NULL,
+`gender` char(1) NOT NULL,
+`hire_date` date NOT NULL,
+PRIMARY KEY (`emp_no`));
+A:
+select e.last_name,e.first_name,d.dept_no
+from  employees e left join dept_emp d on e.emp_no=d.emp_no
+
+
+--考点左连接
+
+
+1、内联接（典型的联接运算，使用像 =  或 <> 之类的比较运算符）。包括相等联接和自然联接。     
+内联接使用比较运算符根据每个表共有的列的值匹配两个表中的行。
+ 
+    
+2、外联接。外联接可以是左向外联接、右向外联接或完整外部联接。     
+在 FROM子句中指定外联接时，可以由下列几组关键字中的一组指定：     
+1）LEFT  JOIN或LEFT OUTER JOIN     
+左向外联接的结果集包括  LEFT OUTER子句中指定的左表的所有行，而不仅仅是联接列所匹配的行。
+如果左表的某行在右表中没有匹配行，则在相关联的结果集行中右表的所有选择列表列均为空值。       
+2）RIGHT  JOIN 或 RIGHT  OUTER  JOIN     
+右向外联接是左向外联接的反向联接。将返回右表的所有行。
+如果右表的某行在左表中没有匹配行，则将为左表返回空值。       
+3）FULL  JOIN 或 FULL OUTER JOIN
+完整外部联接返回左表和右表中的所有行。
+当某行在另一个表中没有匹配行时，则另一个表的选择列表列包含空值。
+如果表之间有匹配行，则整个结果集行包含基表的数据值。   
