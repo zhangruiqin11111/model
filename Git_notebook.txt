@@ -76,6 +76,10 @@
 	$ git log #查看
 	在Terminal 或者git控制条 执行 回退到某个版本命令
 	$ git reset --hard 139dcfaa558e3276b30b6b2e5cbbb9c00bbdca96 
+
+9、git取消merger状态：
+	$ git reset --hard
+
 ######报错信息：
 	解决Git上传过程中：error: failed to push some refs to 'git@github.com
 	解决：https://blog.csdn.net/qq_41485414/article/details/80745910
