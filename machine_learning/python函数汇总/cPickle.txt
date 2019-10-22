@@ -1,0 +1,65 @@
+1、概述：
+	序列化 （Serialization）是将对象的状态信息转换为可以存储或传输的形式的过程。
+	在序列化期间，对象将其当前状态写入到临时或持久性存储区。
+	以后，可以通过从存储区中读取或反序列化对象的状态，重新创建该对象。
+	--通俗的讲
+	个人理解序列化就是通过特殊的方法将数据存储到相应存储区的过程，
+	 反序列化就是依据数据序列化时的规则进行反向执行， 以取出原数据的过程。
+	
+	dump() 与 load()
+	>>> # 创建需要被操作的数据并输出：
+	>>> data = [{'key': 'value'}, ['a list in an other list'], 'a str', 888]
+	>>> print data
+	[{'key': 'value'}, ['a list in an other list'], 'a str', 888]
+	>>> # 以二进制写的方式打开一个文件， 并赋给一个变量 write_file：
+	>>> write_file = open('./MyWorkPlace/test.pkl', 'w+')
+	>>> # 使用 dump() 方法将数据序列化到上一步打开的文件中：
+	>>> cPickle.dump(data, write_file)
+	>>> # 关闭文件
+	>>> write_file.close()
+	>>> # 以二进制读的方式打开序列化数据后的文件， 并赋给变量 read_file：
+	>>> read_file = open('./MyWorkPlace/test.pkl', 'r+')
+	>>> # 使用 load() 方法将该文件中的数据反序列化后输出：
+	>>> print cPickle.load(read_file)  # 可以看到输出来的数据与我们序列化至文件前的数据完全一样
+	[{'key': 'value'}, ['a list in an other list'], 'a str', 888]
+	>>> read_file.close()
+
+
+	dumps() 与 loads()
+	>>> # 使用 2.1 中的数据 data 通过 dumps() 进行序列化：
+	>>> dumps_content= cPickle.dumps(data)
+	>>> # 查看序列化后的数据的类型：
+	>>> print type(dumps_content)
+	<type 'str'>
+	>>> # 打印出序列化后的数据： （此时的数据与 2.1 中序列化至文件中的数据一样）
+	>>> print dumps_content
+	(lp1
+	(dp2
+	S'key'
+	p3
+	S'value'
+	p4
+	sa(lp5
+	S'a list in an other list'
+	p6
+	aaS'a str'
+	p7
+	aI888
+	a.
+	>>> # 使用 loads() 方法， 将刚才序列化后的数据进行反序列化：
+	>>> loads_content = cPickle.loads(dumps_content)
+	>>> # 查看 loads_content 类型：
+	>>> print type(loads_content)
+	<type 'list'>
+	>>> # 将 loads_content 输出：
+	>>> print loads_content  # 我们会发现， 其与序列化之前的数据（data）在类型与数据上完全一样
+	[{'key': 'value'}, ['a list in an other list'], 'a str', 888]
+	>>>
+
+	2.3 带 s 与不带 s 的区别
+
+	常用的 cPickle 类中的四个方法我们分成了两组进行其功能的展示， 但是带 s 与不带 s 的有什么区别呢？
+
+    	不带 s 的两个（即 dump() 和 load()）方法会将数据序列化后保存至文件中， 然后再从文件中取出并反序列化后备用；
+    	带 s 的两个（即 dumps() 和 loads()）方法则会将数据序列化后以字符串的格式保存在内存中， 然后再将字符串格式的数据反序列化后备用；
+
