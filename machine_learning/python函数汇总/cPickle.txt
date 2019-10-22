@@ -5,8 +5,9 @@
 	--通俗的讲
 	个人理解序列化就是通过特殊的方法将数据存储到相应存储区的过程，
 	 反序列化就是依据数据序列化时的规则进行反向执行， 以取出原数据的过程。
-	
-	dump() 与 load()
+2、举例说明（常见方法）：	
+
+	---dump() 与 load()
 	>>> # 创建需要被操作的数据并输出：
 	>>> data = [{'key': 'value'}, ['a list in an other list'], 'a str', 888]
 	>>> print data
@@ -24,8 +25,7 @@
 	[{'key': 'value'}, ['a list in an other list'], 'a str', 888]
 	>>> read_file.close()
 
-
-	dumps() 与 loads()
+	---dumps() 与 loads()
 	>>> # 使用 2.1 中的数据 data 通过 dumps() 进行序列化：
 	>>> dumps_content= cPickle.dumps(data)
 	>>> # 查看序列化后的数据的类型：
@@ -56,7 +56,7 @@
 	[{'key': 'value'}, ['a list in an other list'], 'a str', 888]
 	>>>
 
-	2.3 带 s 与不带 s 的区别
+	---带 s 与不带 s 的区别
 
 	常用的 cPickle 类中的四个方法我们分成了两组进行其功能的展示， 但是带 s 与不带 s 的有什么区别呢？
 
