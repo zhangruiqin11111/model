@@ -1,0 +1,15 @@
+语法：pandas.date_range(start=None, end=None, periods=None, freq='D', tz=None,
+			normalize=False, name=None, closed=None, **kwargs)
+	该函数主要用于生成一个固定频率的时间索引，在调用构造方法时，
+	必须指定start、end、periods中的两个参数值，否则报错。
+
+
+主要参数说明：
+
+periods：固定时期，取值为整数或None
+
+freq：日期偏移量，取值为string或DateOffset，默认为'D'
+
+normalize：若参数为True表示将start、end参数值正则化到午夜时间戳
+
+name：生成时间索引对象的名称，取值为string或None
